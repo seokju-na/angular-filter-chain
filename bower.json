@@ -1,0 +1,20 @@
+{
+  "name": "angular-filter-chain",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "seokju-na"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.7"
+  }
+}

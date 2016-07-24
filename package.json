@@ -1,0 +1,27 @@
+{
+  "name": "angular-filter-chain",
+  "version": "0.1.0",
+  "description": "",
+  "main": "angular-filter-chain.js",
+  "scripts": {
+    "minify": "uglifyjs angular-filter-chain.js -c -m > angular-filter-chain.min.js",
+    "lint": "eslint ./angular-filter-chain.js"
+  },
+  "author": "seokju-na",
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "^13.0.1",
+    "eslint": "^3.1.1",
+    "eslint-config-airbnb-base": "^4.0.2",
+    "eslint-plugin-import": "^1.11.1",
+    "jasmine-core": "^2.4.1",
+    "karma": "^1.1.1",
+    "karma-browserify": "^5.1.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-mocha-reporter": "^2.0.4",
+    "karma-phantomjs-launcher": "^1.0.1",
+    "karma-sauce-launcher": "^1.0.0",
+    "uglify-js": "^2.7.0",
+    "watchify": "^3.7.0"
+  }
+}
