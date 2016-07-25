@@ -11,6 +11,10 @@
 
     var toString = Object.prototype.toString;
 
+    var isUndefined = function (value) {
+        return value === (void 0);
+    };
+
     var isFunction = function (value) {
         return !!value &&
             (typeof value === 'object' || typeof value === 'function') &&
@@ -32,35 +36,43 @@
         }.bind(that);
     };
 
-    var FilterChain = (function () {
-        function FilterChainConstructor(items, filterMap) {
-            var prop;
 
-            this.items = angular.copy(items);
+    function FilterChain(items, $filter, filterMap) {
+        var prop;
 
-            for (prop in filterMap) {
-                if ({}.hasOwnProperty.call(filterMap, prop)) {
-                    if (prop === 'items') {
-                        throw new Error("Filter name 'items' cannot be resolved.");
-                    }
-                    this[prop] = getFuncWhichItemsAreBind(filterMap[prop], this);
+        this.$$filter = $filter;
+        this.items = angular.copy(items);
+
+        for (prop in filterMap) {
+            if ({}.hasOwnProperty.call(filterMap, prop)) {
+                if (prop === 'items') {
+                    throw new Error("Filter name 'items' cannot be resolved.");
                 }
+                this[prop] = getFuncWhichItemsAreBind(filterMap[prop], this);
             }
         }
+    }
+    FilterChain.prototype.applyFilter = function (filterName) {
+        var args = Array.prototype.slice.call(arguments).shift();
 
-        FilterChainConstructor.prototype.getItems = function () {
-            return this.items;
-        };
+        this.items = this.$$filter(filterName).apply(null, [angular.copy(this.items)].concat(args));
 
-        return FilterChainConstructor;
-    })();
+        return this;
+    };
+    FilterChain.prototype.getItems = function () {
+        return this.items;
+    };
 
 
     var angularModule = angular.module('angular-filter-chaining', []);
 
-    angularModule.factory('chainFilters', function () {
+    angularModule.factory('chainFilters', ['$filter', function ($filter) {
         return function (items, filterMap) {
-            return new FilterChain(items, filterMap);
+            if (isUndefined(filterMap)) {
+                filterMap = {};
+            }
+
+            return new FilterChain(items, $filter, filterMap);
         };
-    });
+    }]);
 })();
