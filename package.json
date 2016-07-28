@@ -6,7 +6,7 @@
   "scripts": {
     "minify": "uglifyjs angular-filter-chain.js -c -m > angular-filter-chain.min.js",
     "lint": "eslint ./angular-filter-chain.js",
-    "test": "karma start karma.conf.js"
+    "test": "karma start karma.conf.js --single-run"
   },
   "author": "seokju-na",
   "license": "MIT",
