@@ -53,7 +53,8 @@
         }
     }
     FilterChain.prototype.applyFilter = function (filterName) {
-        var args = Array.prototype.slice.call(arguments).shift();
+        var args = Array.prototype.slice.call(arguments);
+        args.shift();
 
         this.items = this.$$filter(filterName).apply(null, [angular.copy(this.items)].concat(args));
 
@@ -64,7 +65,7 @@
     };
 
 
-    var angularModule = angular.module('angular-filter-chaining', []);
+    var angularModule = angular.module('angular-filter-chain', []);
 
     angularModule.factory('chainFilters', ['$filter', function ($filter) {
         return function (items, filterMap) {

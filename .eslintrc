@@ -22,7 +22,8 @@
 
     "globals": {
         "angular": true,
-        "angular-mocks": true
+        "angular-mocks": true,
+        "_": true
     },
 
     "rules": {
