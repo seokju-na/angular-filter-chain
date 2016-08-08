@@ -78,11 +78,13 @@ app.controller('MainCtrl', function ($scope, chainFilters) {
 
 #### ``chainFilters(items[, filterMap])``
 
-*items*
+**items**
+
     Collection which used in filters.
     
 
-*filterMap*
+**filterMap**
+
     Custom filters map which can be chained. Those filters will receive *items* data on first argument. Define property key as name and value as filter, you can use filter by access key. 
     For example:
     
