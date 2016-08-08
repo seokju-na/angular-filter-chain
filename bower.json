@@ -1,12 +1,13 @@
 {
   "name": "angular-filter-chain",
-  "description": "",
-  "main": "index.js",
+  "description": "chaining filters in angular",
+  "version": "1.0.1",
+  "main": "angular-filter-chain.js",
   "authors": [
     "seokju-na"
   ],
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://github.com/seokju-na/angular-filter-chain",
   "ignore": [
     "**/.*",
     "node_modules",
