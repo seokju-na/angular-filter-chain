@@ -7,7 +7,7 @@ Chaining filters in angular.
 
 ## Install
 
-Download ``angular-filter-chain.js``(or minified file ``angular-filter-chain.min,js``) in project folder.
+Download ``angular-filter-chain.js``(or minified file ``angular-filter-chain.min.js``) in project folder.
 
 Or bower:
 
