@@ -1,6 +1,6 @@
 {
   "name": "angular-filter-chain",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "chaining filters in angular",
   "main": "angular-filter-chain.js",
   "scripts": {
